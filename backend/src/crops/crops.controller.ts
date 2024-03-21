@@ -21,25 +21,18 @@
         throw new NotFoundException('Failed to fetch forecast metadata');
       }
     }
+  
 
-    @Get()
-    async findAll(): Promise<any> {
-      return await this.cropsService.findAll();
-    }
-
-    @Get(':id')
-    findOne(@Param('id') id: string): Promise<Crop> {
-        return this.cropsService.findOne(id);
+    @Get('recommendation')
+    async getSprayWindowRecommendation(): Promise<any> {
+      return this.cropsService.getSprayWindowRecommendation();
     }
 
-    @Put(':id')
-    update(@Param('id') id: string, @Body() updateCropDto: UpdateCropDto): Promise<Crop> {
-        return this.cropsService.update(id, updateCropDto);
+    @Get('planting')
+    async getPlantingWindowRecommendation(): Promise<any> {
+      return this.cropsService.getPlantingWindowRecommendation();
+    }
     }
 
-    @Delete(':id')
-    remove(@Param('id') id: string): Promise<Crop> {
-        return this.cropsService.remove(id);
-    }
-    }
+    
 
