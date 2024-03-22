@@ -69,7 +69,7 @@ export class CropsService {
       }).toPromise();
       return response.data;
     } catch (error) {
-      throw new Error('Failed to fetch planting window recommendation');
+      throw new Error('Failed to fetch planting window recommendations');
    
     }
   }
