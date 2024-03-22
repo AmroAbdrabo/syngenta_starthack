@@ -17,7 +17,7 @@ export class CropsService {
 
     try {
       const response = await this.httpService.get(url, { headers }).toPromise();
-      return response.data[0];
+      return response.data;
     } catch (error) {
       throw new Error('Failed to fetch forecast metadata');
     }
@@ -43,7 +43,7 @@ export class CropsService {
         headers,
         params: { wkt, startDate, endDate, sprayingType, format },
       }).toPromise();
-      return response.data[0];
+      return response.data;
     } catch (error) {
       throw new Error('Failed to fetch spray window recommendation');
     }
@@ -67,7 +67,7 @@ export class CropsService {
         headers,
         params: { locationAsWKT, startDate, endDate, cropType, datasetLabel, soilType },
       }).toPromise();
-      return response.data[0];
+      return response.data;
     } catch (error) {
       throw new Error('Failed to fetch planting window recommendation');
    
